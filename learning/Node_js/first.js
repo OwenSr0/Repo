@@ -195,9 +195,11 @@ clearInterval((varr) => {
 
 // File system
 
-//
+// El sistema de archivos importante para requerir archivos externos.
 
 const fs = require('fs');
+const { Z_ASCII } = require('zlib');
+// Aqui se forma la var fs con las propiedades de file system
 
 function read(route, cb){
     fs.readFile(route, (err, data) => {
@@ -234,4 +236,92 @@ setTimeout(((route, cb),() => {
 //write(__dirname + '/archivee.txt', 'New archive', console.log)
 //read(__dirname + '/text.text')
 //deletee(__dirname + '/archivee.txt', console.log)
+
+
+// Console
+
+// Es importante denotar la importancia de las virtudes que podemos utilizar de Console.
+
+// recibe cualquier tipo y lo muestra en el consola.
+// console.log('');
+// es equivalente a log pero es usado para informar.
+// console.info('');
+// es equivalente a log pero es usado para errores.
+// console.error('');
+// es equivalente a log pero es usado para warning.
+// console.warn('');
+// muestra una tabla a partir de un objeto.
+var table = [
+    {
+        a: 1,
+        b: 'z'
+    },
+    {
+        a: 3,
+        b: 'i'
+    }
+]
+// console.table(table);
+// inicia un contador autoincremental.
+// console.count('times');
+// reinicia el contador a 0.
+// console.countReset();
+// inicia un cronometro en ms.
+// console.time();
+//  Finaliza el cronometro.
+// console.timeEnd();
+// permite agrupar errores mediante identación.
+// console.group();
+// finaliza la agrupación.
+// console.groupEnd();
+// Limpia la consola.
+// console.clear(); 
+
+
+// Errores Try/Catch
+
+// La importancia de try and catch, se utiliza para funciones que posiblemente tengan errores, para no detener el proceso y ubicar el error.
+
+function brokee(){
+    return 3 + sdfg;
+}
+
+function itbroke(){
+    broke();
+}
+
+function brokeA(cb){
+    setTimeout(function (){
+        try{
+            return 3 + asdfas;
+        }   catch(err){
+            console.log('Oh, something was broken');
+            cb(err);
+        }
+        
+    })
+
+}
+
+//brokee();
+
+
+//sincronico
+
+//try se utiliza para probar la funcion, y si en algun comento se encuentra un error catch no comenta y ejecuta alguna linea.
+// try{
+//     itbroke();
+// } catch(err){
+//     console.log('Oh, something was broken');
+// }
+
+// Asincronico
+brokeA( function(err) {
+    console.log(err.message)
+});
+
+console.log('last mesaage');
+
+
+
 

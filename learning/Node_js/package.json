@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "electron": "^19.0.8",
+    "gulp": "^4.0.0",
+    "gulp-server-livereload": "^1.9.2",
+    "is-odd": "^3.0.1",
+    "moment": "^2.29.4",
+    "puppeteer": "^15.4.0",
+    "sharp": "^0.30.7",
+    "updates": "^13.1.2"
+  },
+  "scripts": {
+    "elec": "electron ./electron/index.js",
+    "start": "gulp",
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "install": "node-gyp rebuild"
+  },
+  "gypfile": true,
+  "name": "electron-app",
+  "version": "1.0.0",
+  "main": "ez.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "description": ""
+}
