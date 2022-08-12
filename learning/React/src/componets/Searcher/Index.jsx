@@ -2,6 +2,8 @@ import React from 'react'
 import { IconButton, Stack, TextField, InputAdornment} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 
+
+
 const stackStyle = {
     flexDirection: 'row',
     marginTop: '30px',
@@ -20,12 +22,14 @@ const Searcher = (props) => {
 
     var {
         inputUser,
-        setInputUser
+        setInputUser,
+        gettingUser
     } = props;
 
-    const handleClick = () => {
-        console.log(inputUser)
+    const handleClick = (inputUser) => {
+        gettingUser(inputUser)
     }
+    
 
     return(
     <Stack
@@ -43,7 +47,7 @@ const Searcher = (props) => {
 					InputProps={{
 					startAdornment: (
 						<InputAdornment position="start" sx={iconSearchStyle}>
-							<IconButton  onClick={()=> handleClick(setInputUser, inputUser)}>
+							<IconButton  onClick={()=> handleClick(inputUser)}>
 								<SearchIcon/>
 							</IconButton>
 						</InputAdornment>
