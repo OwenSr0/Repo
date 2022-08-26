@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IconButton, Stack, TextField, InputAdornment} from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -15,21 +15,26 @@ const textFieldStyle = {
 }
 
 const iconSearchStyle = {
-    order: '1'
+    left:'-45px'
 }
 
 const Searcher = (props) => {
 
-    var {
+    const {
         inputUser,
-        setInputUser,
-        gettingUser
+        setInputUser
     } = props;
 
-    const handleClick = (inputUser) => {
-        gettingUser(inputUser)
+    const [tempValue, setTempValue] = useState('');
+
+    const onSearchValueChange = (event) => {
+        const inputValue = event.target.value;
+        setTempValue(inputValue);
     }
-    
+
+    const handleSubmit = () => {
+        setInputUser(tempValue);
+    }
 
     return(
     <Stack
@@ -39,22 +44,25 @@ const Searcher = (props) => {
         <TextField
         id='outlined-basic'
         label='GitHub User'
-        placeholder='OwenSr0'
+        placeholder='octocat'
         variant='outlined'
         size='small'
+        value={tempValue}
+        onChange={onSearchValueChange}
         sx={textFieldStyle}
-					onChange={e => setInputUser(e.target.value)}
-					InputProps={{
-					startAdornment: (
-						<InputAdornment position="start" sx={iconSearchStyle}>
-							<IconButton  onClick={()=> handleClick(inputUser)}>
-								<SearchIcon/>
-							</IconButton>
-						</InputAdornment>
-					)}}
-		/>
+        />
+        <IconButton 
+        sx={iconSearchStyle}
+        onClick={handleSubmit}
+        >
+            <SearchIcon/>
+        </IconButton>
     </Stack>
     )
 }
 
 export default Searcher;
+
+/*
+<IconButton  onClick={()=> handleClick(tempValue, setInputUser)}></IconButton>
+onChange={e => setTempValue(e.target.value)} */

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container }from '@mui/material'
 import Searcher from './componets/Searcher/Index';
-import { getGitHubUsers } from './services/users'
+import { getGitHubUsers } from './services/users';
+import UserCard from './containers/userCard/index'
 
 const stackStyle = {
     background: 'whitesmoke',
@@ -18,33 +19,35 @@ var count = 0;
 
 const App = () => {
     
-    const [inputUser, setInputUser] = useState('OwenSr0');
-    const [userState, setUserState] = useState(inputUser);
-    const [notFound, setNotFound] = useState(false);
+    const [inputUser, setInputUser] = useState('octocat');
+    const [userState, setUserState] = useState('inputUser');
+    const [notFound, setnotFound] = useState(false);
 
     const gettingUser =  async (user) => {
-
-        const userResponse = await getGitHubUsers(user);
-
-        if(userState == 'OwenSr0'){
-            localStorage.setItem('OwenSr0', userResponse);
-        }
+        const userResponse = await getGitHubUsers(user)
 
         if(userResponse.message == 'Not Found'){
-            const { OwenSr0 } = localStorage
-            setInputUser(OwenSr0)
-            setNotFound(true)
+            setInputUser("octocat")
+            setnotFound(true);
         } else {
             setUserState(userResponse);
         }
-        
     }
+
+    console.log(inputUser)
     console.log(userState)
 
+    useEffect(() => {
+        gettingUser(inputUser);
+    }, [inputUser]);
+
+
+    
 
 return(
 <Container sx={stackStyle}> 
-    <Searcher inputUser={inputUser} setInputUser={setInputUser} gettingUser={gettingUser}/>
+    <Searcher  inputUser={inputUser} setInputUser={setInputUser}/>
+    <UserCard userState={userState}/>
 </Container>
     )
 };
