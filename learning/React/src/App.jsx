@@ -7,7 +7,7 @@ import UserCard from './containers/userCard/index'
 const stackStyle = {
         background: 'whitesmoke',
         width: {xs:"90vw", md: "80vw"},
-        height: {xs:"100%", md: "60vh", lg:"500px"},
+        height: {xs:"100%", md: "60vh", lg:"600px"},
         borderRadius: '16px',
         marginTop: {xs:"15px", md: "30px", lg:"40px"},
         display: {xs:"block", md:"flex"},
