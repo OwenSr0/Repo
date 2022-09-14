@@ -1,7 +1,23 @@
 {
+  "name": "basico-material-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "webpack server --mode development"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --mode development"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzi/basico-material-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/platzi/basico-material-ui/issues"
+  },
+  "homepage": "https://github.com/platzi/basico-material-ui#readme",
   "dependencies": {
     "@emotion/react": "11.8.1",
     "@emotion/styled": "11.8.1",
@@ -30,8 +46,8 @@
     "html-webpack-plugin": "5.5.0",
     "mini-css-extract-plugin": "2.6.0",
     "prettier": "2.5.1",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.3"
+    "webpack": "5.72.1",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.8.0"
   }
 }

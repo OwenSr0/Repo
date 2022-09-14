@@ -5,15 +5,16 @@ import { getGitHubUsers } from './services/users';
 import UserCard from './containers/userCard/index'
 
 const stackStyle = {
-    background: 'whitesmoke',
-    width: '80vw',
-    height: '500px',
-    borderRadius: '16px',
-    marginTop: '40px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-}
+        background: 'whitesmoke',
+        width: {xs:"90vw", md: "80vw"},
+        height: {xs:"100%", md: "60vh", lg:"500px"},
+        borderRadius: '16px',
+        marginTop: {xs:"15px", md: "30px", lg:"40px"},
+        display: {xs:"block", md:"flex"},
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingBottom: {xs:"1rem", sm: "3rem", lg:"0"}
+    }
 
 var count = 0;
 
@@ -21,32 +22,26 @@ const App = () => {
     
     const [inputUser, setInputUser] = useState('octocat');
     const [userState, setUserState] = useState('inputUser');
-    const [notFound, setnotFound] = useState(false);
+    const [notFound, setNotFound] = useState(false);
 
     const gettingUser =  async (user) => {
         const userResponse = await getGitHubUsers(user)
 
         if(userResponse.message == 'Not Found'){
             setInputUser("octocat")
-            setnotFound(true);
+            setNotFound(true); 
         } else {
             setUserState(userResponse);
         }
     }
 
-    console.log(inputUser)
-    console.log(userState)
-
     useEffect(() => {
         gettingUser(inputUser);
     }, [inputUser]);
 
-
-    
-
 return(
 <Container sx={stackStyle}> 
-    <Searcher  inputUser={inputUser} setInputUser={setInputUser}/>
+    <Searcher  inputUser={inputUser} setInputUser={setInputUser} notFound={notFound}/>
     <UserCard userState={userState}/>
 </Container>
     )
