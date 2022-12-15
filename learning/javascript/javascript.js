@@ -1,6 +1,10 @@
 // templates literales
 
 
+// array with objects
+
+var uwuColors = [{color: 'black', price: 30}, {color: 'pink', price: 850}, {color: 'orange', price: 420}, {color: 'blue', price: 58}]
+
 // 
 
 const name0= 'Deadpool';
@@ -47,3 +51,43 @@ const [, , h4] = heroes;
 const sum = (a, b) => a + b;
 
 console.log(sum(2, 23));
+
+// location.reload()
+
+// obtain the width of the windows of html
+seccion_del_mapa.getBoundingClientRect().width - 20
+
+// filter
+// filtra mediante una condiocion y los encapsula
+var filterUwU = uwuColors.filter(function(color){
+    return color.price < 300;
+    }
+)
+
+// map
+// filtra las condiciones y encapsula.
+var mapUwU = uwuColors.map(function(color){
+    return color.price;
+    }
+)
+
+// find
+// Busca un valor especifico
+var findUwU = uwuColors.find(function(color){
+    return color.price === 30;
+    }
+)
+
+//forEach
+// Intervalo por cada elemento del array
+uwuColors.forEach((color) => {
+    return console.log(color.color)
+    }
+)
+
+// some
+// valida alguna condicion y retorna un boolean
+var filterUwU = uwuColors.some(function(color){
+    return color.price > 300;
+    }
+)
